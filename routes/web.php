@@ -28,6 +28,7 @@ $router->delete('/authors/{author}', 'AuthorController@destroy');
  * Book routes
  */
 $router->get('/books', 'BookController@index');
+//$router->post('/books', 'BookController@store');
 $router->post('/books', ['as' => 'addbooks', 'uses' => 'BookController@store']);
 $router->get('/books/{book}', 'BookController@show');
 $router->put('/books/{book}', 'BookController@update');

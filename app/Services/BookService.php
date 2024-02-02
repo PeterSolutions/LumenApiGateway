@@ -34,7 +34,7 @@ class BookService
      */
     public function createBook($data)
     {
-        return $this->performRequest('POST', '/autor', $data);
+        return $this->performRequest('POST', '/books', $data);
     }
 
     /**
