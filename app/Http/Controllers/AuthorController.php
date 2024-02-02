@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\AuthorService;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AuthorController extends Controller
 {
@@ -34,18 +35,23 @@ class AuthorController extends Controller
         return $this->successResponse($this->authorService->obtaingAuthors());
 
     }
-    public function store(Request $request)
-    {
 
+    /**
+     * Create an instance of author
+     * @return Illuminate/Http/Response
+     */
+    public function create(Request $request)
+    {
+        return $this->successResponse($this->authorService->createAuthor($request->all()), Response::HTTP_CREATED);
     }
 
     /**
-     * Show an author
+     * obtain and show an instance of author
      * @return Illuminate/Http/Response
      */
     public function show($author)
     {
-
+        return $this->successResponse($this->authorService->obtainAuthor($author));
     }
 
     /**
@@ -54,7 +60,7 @@ class AuthorController extends Controller
      */
     public function update(Request $request, $author)
     {
-
+        return $this->successResponse($this->authorService->editAuthor($request->all(), $author));
     }
 
     /**
@@ -63,6 +69,6 @@ class AuthorController extends Controller
      */
     public function destroy($author)
     {
-
+        return $this->successResponse($this->authorService->deleteAuthor($author));
     }
 }
