@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 
 use GuzzleHttp\Exception\ClientException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Response;
 use App\Traits\ApiResponser;
 use Illuminate\Auth\Access\AuthorizationException;
